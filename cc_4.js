@@ -24,9 +24,24 @@ let inventory = [
     },
     {"name" : "backpack",
         "price" : 40,
-        "quantity" : 1000,
+        "quantity" : 20,
         "lowStockLevel" : 50,
     }
 ];
 
+// Log this array into the console
 console.log(inventory);
+
+// Task 2: Create a function to display product details
+function displayProductDetails () {
+    for (let index = 0; index < inventory.length; index++) {
+        if (inventory[index].quantity <= inventory[index].lowStockLevel) {
+        console.log(`Low stock: ${inventory[index].name} with${inventory[index].quantity} items left.`)
+        }
+        else {
+        console.log(`In stock: ${inventory[index].name} with ${inventory[index].quantity} items left.`)
+        }
+    }
+}
+
+let runCode = displayProductDetails ()
