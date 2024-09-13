@@ -60,5 +60,14 @@ function updateStock (product, unitsSold) {
     return `${product.name}: ${productStatus}`;
 }
     
-console.log(updateStock(inventory[0], 30));
+console.log(updateStock(inventory[3], 90));
+
+// Task 4: Create a function to check low stock products
+let lowStock = []
+inventory.forEach((item) => {
+    if (item.quantity <= item.lowStockLevel) { //populating the vacant array so that it can be logged
+        lowStock.push(`\n${item.name}`);
+    }   
+});
+console.log(`Low stock: ${lowStock}`);
 
