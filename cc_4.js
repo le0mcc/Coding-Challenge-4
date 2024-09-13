@@ -14,7 +14,7 @@ let inventory = [
     },
     {"name" : "pens",
         "price" : 5,
-        "quantity" : 6000,
+        "quantity" : 50,
         "lowStockLevel" : 500,
     },
     {"name" : "pencils",
@@ -36,7 +36,7 @@ console.log(inventory);
 function displayProductDetails () {
     for (let index = 0; index < inventory.length; index++) {
         if (inventory[index].quantity <= inventory[index].lowStockLevel) {
-        console.log(`Low stock: ${inventory[index].name} with${inventory[index].quantity} items left.`)
+        console.log(`Low stock: ${inventory[index].name} with ${inventory[index].quantity} items left.`)
         }
         else {
         console.log(`In stock: ${inventory[index].name} with ${inventory[index].quantity} items left.`)
@@ -44,4 +44,21 @@ function displayProductDetails () {
     }
 }
 
-let runCode = displayProductDetails ()
+let runDisplay = displayProductDetails ()
+
+// Task 3: Create a function to update product stock after sales
+function updateStock (product, unitsSold) {
+    // determine if there is enough stock
+    if (unitsSold <= product.quantity) {
+        product.quantity -= unitsSold;
+    }
+    else {
+        return `Not enough stock.`;
+    }
+    // display stock status with return
+    const productStatus = (product.quantity <= product.lowStockLevel) ? "Low Stock" : "In Stock";
+    return `${product.name}: ${productStatus}`;
+}
+    
+console.log(updateStock(inventory[0], 30));
+
