@@ -39,12 +39,12 @@ function displayProductDetails () {
         console.log(`Low stock: ${inventory[index].name} with ${inventory[index].quantity} items left.`)
         }
         else {
-        console.log(`In stock: ${inventory[index].name} with ${inventory[index].quantity} items left.`)
-        }
-    }
-}
+        console.log(`In stock: ${inventory[index].name} with ${inventory[index].quantity} items left.`);
+        };
+    };
+};
 
-let runDisplay = displayProductDetails ()
+let runDisplay = displayProductDetails ();
 
 // Task 3: Create a function to update product stock after sales
 function updateStock (product, unitsSold) {
@@ -63,11 +63,21 @@ function updateStock (product, unitsSold) {
 console.log(updateStock(inventory[3], 90));
 
 // Task 4: Create a function to check low stock products
-let lowStock = []
+let lowStock = [];
 inventory.forEach((item) => {
     if (item.quantity <= item.lowStockLevel) { //populating the vacant array so that it can be logged
         lowStock.push(`\n${item.name}`);
-    }   
+    };   
 });
 console.log(`Low stock: ${lowStock}`);
 
+// Task 5: Create a function to calculate total inventory value
+function calculateInventoryValue (inv) {
+    let totals = [];
+    for (let index = 0; index < inv.length; index++) {
+        let total = inv[index].price * inv[index].quantity;
+        totals.push(total);
+    }
+    return totals;
+};
+console.log(calculateInventoryValue(inventory));
