@@ -2,27 +2,27 @@
 
 // Task 1: Create an inventory array of product objects
 let inventory = [
-    {"name" : "notebook",
+    {"name" : "Notebook",
         "price" : 8,
         "quantity" : 3000,
         "lowStockLevel" : 300,
     },
-    {"name" : "folder",
+    {"name" : "Folder",
         "price" : 1,
         "quantity" : 5000,
         "lowStockLevel" : 200,
     },
-    {"name" : "pens",
+    {"name" : "Pens",
         "price" : 5,
         "quantity" : 50,
         "lowStockLevel" : 500,
     },
-    {"name" : "pencils",
+    {"name" : "Pencils",
         "price" : 4,
         "quantity" : 5000,
         "lowStockLevel" : 400,
     },
-    {"name" : "backpack",
+    {"name" : "Backpack",
         "price" : 40,
         "quantity" : 20,
         "lowStockLevel" : 50,
@@ -43,7 +43,7 @@ function displayProductDetails () {
         };
     };
 };
-
+// call function
 let runDisplay = displayProductDetails ();
 
 // Task 3: Create a function to update product stock after sales
@@ -76,8 +76,16 @@ function calculateInventoryValue (inv) {
     let totals = [];
     for (let index = 0; index < inv.length; index++) {
         let total = inv[index].price * inv[index].quantity;
-        totals.push(total);
+        totals.push(total); // populate empty totals array so it can be displayed
     }
     return totals;
 };
 console.log(calculateInventoryValue(inventory));
+
+// Task 6: Create a function to process a sale
+function processSale(units) {
+    let prods = inventory.find((prod) => prod.name === "Backpack");
+    updateStock(prods,units); // call updateStock to proccess the sale
+    return inventory;
+}
+console.log(processSale(5));
